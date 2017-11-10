@@ -42,7 +42,7 @@ fs.readdir(path.join(__dirname, 'app', 'api', 'routes'), (err, contents) => {
     })
 })
 
-app.use('/api', router)
+app.use(router)
 
 let server = http.createServer(app)
 const port = process.env.PORT || 3000
