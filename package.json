@@ -1,0 +1,36 @@
+{
+  "name": "mesh-interview-task",
+  "version": "1.0.0",
+  "description": "Interview task",
+  "main": "server.js",
+  "engines": {
+    "node": "6.11.3"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "lint": "eslint .",
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asheahan/mesh-interview-task.git"
+  },
+  "author": "Andrew Sheahan",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.10.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^4.0.1",
+    "sinon": "^4.1.2",
+    "supertest": "^3.0.0"
+  }
+}
