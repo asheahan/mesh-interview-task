@@ -9,7 +9,7 @@ const githubRoutes = require('./github-routes')
 let githubRouter = express.Router()
 
 module.exports = function (router) {
-  githubRouter.get('/githubPayload', githubRoutes.getUserPayload)
+  githubRouter.get('/githubPayload', githubRoutes.getUserPayloadCache, githubRoutes.getUserPayload)
 
   router.use(githubRouter)
 }
