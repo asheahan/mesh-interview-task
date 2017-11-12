@@ -5,6 +5,7 @@
  * @requires fs
  * @requires http
  * @requires path
+ * @requires swagger-jsdoc
  */
 
 const bodyParser = require('body-parser')
@@ -12,6 +13,7 @@ const express = require('express')
 const fs = require('fs')
 const http = require('http')
 const path = require('path')
+const swaggerJSDoc = require('swagger-jsdoc')
 
 let app = express()
 let router = express.Router()
@@ -19,6 +21,21 @@ let router = express.Router()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'app', 'public')))
+
+let swaggerDefinition = {
+  info: {
+    title: 'Mesh Interview Task API',
+    version: '1.0.0'
+  },
+  basePath: '/'
+}
+
+let options = {
+  swaggerDefinition,
+  apis: ['./app/api/routes/**/index.js']
+}
+
+let swaggerSpec = swaggerJSDoc(options)
 
 // Loop through routes directory and add routes to router
 fs.readdir(path.join(__dirname, 'app', 'api', 'routes'), (err, contents) => {
@@ -43,6 +60,11 @@ fs.readdir(path.join(__dirname, 'app', 'api', 'routes'), (err, contents) => {
 })
 
 app.use(router)
+
+app.get('/swagger.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json')
+  res.send(swaggerSpec)
+})
 
 let server = http.createServer(app)
 const port = process.env.PORT || 3000

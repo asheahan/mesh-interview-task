@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "lint": "eslint ./app",
+    "lint": "eslint ./app/api/",
     "test": "mocha --recursive --reporter spec"
   },
   "repository": {
@@ -21,7 +21,8 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "request": "^2.83.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "swagger-jsdoc": "^1.9.7"
   },
   "devDependencies": {
     "eslint": "^4.10.0",
