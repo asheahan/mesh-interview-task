@@ -51,3 +51,25 @@ This task should not take you more than ~4 hours.
 ### Help
 
 Please feel free to ping us with any questions you might have as you get going. Otherwise we are excited to see what you build!
+
+---
+
+# Submission
+
+### Run
+
+```
+npm install
+npm start
+```
+
+### Test
+
+```
+npm run lint
+npm run test
+```
+
+### Documentation
+
+This project uses Swagger for API documentation. Navigate to localhost:3000/ with the server started to view the documentation.
